@@ -51,45 +51,27 @@ class Notebook:
         '''
         self.notes.append(Note(memo, tags))
 
-    # def modify_memo(self, note_id, memo):
-    #     '''
-    #     Find the note with the given id and change its
-    #     memo to the given value.
-    #     '''
-    #     for note in self.notes:
-    #         if note.id == note_id:
-    #             note.memo == memo
-    #             break
 
-    def modify_tags(self, note_id, tags):
-        '''
-        Find the note with the given id and change its
-        tags to the given value.       
+    def modify_memo(self, note_id, memo):
+        '''Find the note with the given id and change its
+           memo to the given value.
         '''
         for note in self.notes:
             if note.id == note_id:
-                note.tags = tags
+                note.memo = memo
                 break
 
-    def search(self, filter):
-        '''
-        Find all notes that match the given filter
-        string.
-        '''
-        return [note for note in self.notes if note.match(filter)]
-
-    def _find_note(self, note_id):
-        '''
-        Locate the note with the given id.
+    def modify_tags(self, note_id, tags):
+        '''Find the note with the given id and change its
+           tags to the given valueю
         '''
         for note in self.notes:
-            if str(note.id) == str(note_id):
-                return note
-            return None
+            if note.id == note_id:
+                        note.tags = tags
+                        break
 
-    def modify_memo(self, note_id, memo):
+    def search(self, filter):
+        '''Find all notes that match the given filter
+        string.
         '''
-        Find the note with the given id and change its
-        memo to the given value.
-        '''
-        self._find_note(note_id).memo = memo
+        return [note for note in self.notes if note.match(filter)]    
